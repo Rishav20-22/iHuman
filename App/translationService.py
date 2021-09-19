@@ -336,7 +336,7 @@ import openai
 from dotenv import load_dotenv
 
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = "sk-KeGnzosr5Dca1H6z8YBLpvXFKxDEbNXpTzPt3dCd"
 
 
 def make_single_request(tweet):
@@ -345,6 +345,12 @@ def make_single_request(tweet):
         search_model="davinci",
         model="davinci",
         examples=[
+            ["Great moment to buy some stock", "Positive"],
+            ["Huge drops in prices, warning", "Negative"],
+            ["Time to buy some more stock", "Positive"],
+            ["Crash is coming, sell now", "Negative"],
+            ["Amazing run this week, markets seem bullish", "Positive"],
+            ["We are headed into a bear market, prices are falling", "Negative"]
         ],
         query=tweet,
         labels=["Positive", "Negative"],
@@ -481,6 +487,7 @@ def chat(socketio):
       Intro_scores_list.append(0)
     df['Intro_scores'] = Intro_scores_list
   df['Scoring'] = scoring
-  
+  df.to_csv("output.csv")
+
 
 
