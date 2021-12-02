@@ -333,10 +333,8 @@ def get_subjectivity(text):
 
 import os
 import openai
-from dotenv import load_dotenv
 
-load_dotenv()
-openai.api_key = "sk-KeGnzosr5Dca1H6z8YBLpvXFKxDEbNXpTzPt3dCd"
+openai.api_key = "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"
 
 
 def make_single_request(tweet):
@@ -349,6 +347,7 @@ def make_single_request(tweet):
             ["Huge drops in prices, warning", "Negative"],
             ["Time to buy some more stock", "Positive"],
             ["Crash is coming, sell now", "Negative"],
+
             ["Amazing run this week, markets seem bullish", "Positive"],
             ["We are headed into a bear market, prices are falling", "Negative"]
         ],
